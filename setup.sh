@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
-if cp your_script.sh /usr/local/bin/; then
+if cp logip.sh /usr/local/bin/; then
     echo "Installation complete"
 else
     echo "Error"
