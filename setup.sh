@@ -5,6 +5,8 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
-cp your_script.sh /usr/local/bin/
-
-echo "Installation complete. You can now use 'your_command' directly."
+if cp your_script.sh /usr/local/bin/; then
+    echo "Installation complete"
+else
+    echo "Error"
+fi
