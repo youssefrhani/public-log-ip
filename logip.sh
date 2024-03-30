@@ -28,8 +28,10 @@ while [ "$#" -gt 0 ]; do
             echo "logip -s or --show to print the log"
             echo "logip -c or --clear to clear the log"
             echo "logs are stored in /home/user/public_ip.log"
-            *)
-                echo "Unknown option: $1"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
             exit 1
             ;;
     esac
