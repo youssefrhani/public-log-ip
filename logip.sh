@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file="/var/local/public_ip.log"
+file="$HOME/public_ip.log"
 date=$(date +'%d/%m/%y %H:%M')
 ssid=$(nmcli connection show --active | awk 'NR>1 {print $1}' | head -n 1)
 
@@ -19,12 +19,17 @@ while [ "$#" -gt 0 ]; do
             echo "Log file cleared."
             exit 0
             ;;
-    -s|--show)
-        cat $file
+        -s|--show)
+            cat $file
             exit 0
-        ;;
-        *)
-            echo "Unknown option: $1"
+            ;;
+        -h|--help)
+            echo "logip along, running the command"
+            echo "logip -s or --show to print the log"
+            echo "logip -c or --clear to clear the log"
+            echo "logs are stored in /home/user/public_ip.log"
+            *)
+                echo "Unknown option: $1"
             exit 1
             ;;
     esac
